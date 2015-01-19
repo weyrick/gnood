@@ -1,0 +1,17 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(include/gnood.h)
+
+dnl Checks for programs.
+AC_PROG_CPP
+
+dnl Checks for libraries.
+dnl Replace `main' with a function in -lclanCore:
+AC_CHECK_LIB(clanCore, main)
+
+dnl Checks for header files.
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+
+dnl Checks for library functions.
+
+AC_OUTPUT(Makefile include/config.h)

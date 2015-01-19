@@ -1,0 +1,89 @@
+//
+//	Gnood Resource Script
+//
+
+section Game
+{
+
+	section Fonts {
+
+		fntAvantgardeWhiteBold10 = fonts/avantgarde-white-bold-10.tga (type=font, trans_limit=0.05, subtract_width=0, spacelen=4, letters="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZÊ∆¯ÿÂ≈0123456789.,:;|!""@#$%&/\{}[]()<>=+-_?'`~^*");
+
+	}
+
+	section Config
+	{
+
+
+		// global config
+		section Main {
+
+			screenWidth	= "640" (type=integer); // screen width
+			screenHeight	= "480" (type=integer); // screen height
+			screenBPP	= "16"	(type=integer); // screen bpp
+			skin		= gfx/skin1.tga (type=surface, x=0, y=0, width=640, height=480);
+
+		}
+
+		// config concerning the gnood playboard area
+		section PlayBoard {
+
+			width		= "525" (type=integer); // play board width in pixels
+			height		= "340" (type=integer);	// play board height in pixels
+
+			startX 		= "10"	(type=integer);	// x location playboard begins at on screen
+			startY 		= "10"	(type=integer);	// y location playboard begins at on screen
+
+			brickWidth	= "30"  (type=integer); // width of bricks
+			brickHeight	= "30"  (type=integer); // height of bricks
+
+			// brick graphics
+			numBrickTypes	= "4"   (type=integer); // number of bricks
+			section Bricks {
+				sur_brick_0	= gfx/test-brick.tga (type=surface, x=0, y=0, width=30, height=30, array=10x1);
+				sur_brick_1	= gfx/test-brick2.tga (type=surface, x=0, y=0, width=30, height=30, array=10x1);
+				sur_brick_2	= gfx/test-brick3.tga (type=surface, x=0, y=0, width=30, height=30, array=10x1);
+				sur_brick_3	= gfx/test-brick4.tga (type=surface, x=0, y=0, width=30, height=30, array=10x1);
+			}
+
+			// background tile for playboard
+			sur_bgTile      = gfx/def_layout.tga (type=surface, x=0, y=0, width=64, height=64);
+
+		}
+
+		// config concerning the shooter area
+		section ShooterBoard {
+
+			// leave baseX undefined to center it in the play area
+			//baseX 		= "230"	(type=integer);	// x location shooter base begins at on screen
+			baseY 		= "410"	(type=integer);	// y location shooter base begins at on screen
+
+			centerDistance  = "60"  (type=integer); // distance from center of shooter base the brick
+								// will be launched/aimed from
+
+			// shooter base
+			sur_shooterBase = gfx/shooterBase.tga (type=surface, x=0, y=0, width=50, height=50);
+			shooterBaseH = "50"  (type=integer); // shooter base height
+			shooterBaseW = "50"  (type=integer); // shooter base width
+
+			// min/max angle the shooter should fire at
+			minMaxAngle     = "65" (type=integer);
+
+			// the brick speed (lower == faster)
+			brickSpeed	= "3" (type=integer);
+
+			// max bricks in flight at a time
+			maxInFlight	= "1" (type=integer);
+
+		}
+
+
+		// config concerning the score board area
+		section ScoreBoard {
+
+
+		}
+	
+	}
+
+}

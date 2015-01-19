@@ -1,0 +1,18 @@
+
+TODO
+------
+
+- multiple check points for splid when firing through air
+- bugs in matchList
+
+
+- hard code top two points (x, x+w) for collision detection, remove other crap
+
+
+
+- scoring:
+  script definable
+  
+- use stl stuff all around, pick best for each array
+
+

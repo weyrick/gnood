@@ -1,0 +1,39 @@
+prefix =	@prefix@
+exec_prefix =	@exec_prefix@
+datadir =	@datadir@
+bindir =	@bindir@
+
+top_srcdir = .
+program_dir = src
+
+OBJF        =   gnood.o playBoard.o shooterBoard.o scoreBoard.o brickFlight.o brick.o brickFall.o
+DATAFILES   =   gnood.dat
+TARGET      =   gnood
+EXTERN_LIBS =   -lclanCore
+INCLUDES    =   -I./include/
+LDFLAGS     = 
+
+VPATH = :$(top_srcdir)/$(program_dir)
+
+all: $(TARGET)
+
+data: $(DATAFILES)
+
+clean:
+	@echo "Cleaning project..."
+	@find . -name '*.o' -exec rm "{}" \;
+	@if [ -f $(TARGET) ]; then rm -f $(TARGET); fi
+
+$(TARGET): $(OBJF)
+	@echo "Building Executable ..."
+	g++ $(LDFLAGS) $(EXTERN_LIBS) -o $(TARGET)  -g $(OBJF)
+
+%.o : %.cpp
+	$(CXX) -c $(INCLUDES) $(CPPFLAGS) $(CXXFLAGS) -g -Wall $< -o $@
+
+%.dat : %.scr
+	@echo "Building datafile $<"
+	@./$(TARGET) -datafile $< $@
+
+distclean: clean
+	rm -f config.log config.cache config.h Makefile config.status configure $(TARGET).dat
